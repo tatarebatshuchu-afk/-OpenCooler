@@ -1,0 +1,7 @@
+item.ocaddon.cooler_tier1.name=Кулер (Тир 1)
+item.ocaddon.cooler_tier2.name=Кулер (Тир 2)
+item.ocaddon.cooler_tier3.name=Кулер (Тир 3)
+item.ocaddon.thermal_paste.name=Тюбик термопасты
+item.ocaddon.rag_clean.name=Чистая тряпка
+item.ocaddon.rag_dirty.name=Грязная тряпка
+itemGroup.opencooler=OpenCooler

@@ -1,0 +1,7 @@
+item.ocaddon.cooler_tier1.name=Cooler (Tier 1)
+item.ocaddon.cooler_tier2.name=Cooler (Tier 2)
+item.ocaddon.cooler_tier3.name=Cooler (Tier 3)
+item.ocaddon.thermal_paste.name=Thermal Paste
+item.ocaddon.rag_clean.name=Clean Rag
+item.ocaddon.rag_dirty.name=Dirty Rag
+itemGroup.opencooler=OpenCooler

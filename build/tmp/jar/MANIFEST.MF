@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: OpenCooler
+Specification-Vendor: OpenCooler
+Specification-Version: 1
+Implementation-Title: OpenCooler
+Implementation-Version: 1.0.0
+Implementation-Vendor: OpenCooler
+Implementation-Timestamp: 2026-10-28T18:59:25+0500
+

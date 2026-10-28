@@ -1,0 +1,7 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "opencomputers:items/cpu1",
+    "layer1": "ocaddon:items/cpu_overlay"
+  }
+}

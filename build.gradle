@@ -1,0 +1,90 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url = 'https://maven.gofancy.wtf/releases' }
+        maven { url = 'https://maven.minecraftforge.net/' }
+    }
+    dependencies {
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.+'
+        classpath group: 'wtf.gofancy.fancygradle', name: 'wtf.gofancy.fancygradle.gradle.plugin', version: '+'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'wtf.gofancy.fancygradle'
+apply plugin: 'eclipse'
+apply plugin: 'maven-publish'
+
+version = '1.0.0'
+group = 'ocaddon'
+archivesBaseName = 'OpenCooler-1.12.2'
+
+// Minecraft 1.12.2 работает на Java 8
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+
+wrapper {
+    gradleVersion = "7.5.1"
+}
+
+minecraft {
+    mappings channel: 'stable', version: '39-1.12'
+
+    runs {
+        client {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'debug'
+        }
+        server {
+            workingDirectory project.file('run')
+            property 'forge.logging.console.level', 'debug'
+        }
+    }
+}
+
+fancyGradle {
+    patches {
+        resources
+        coremods
+        codeChickenLib
+        asm
+        mergetool
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2860'
+
+    // Jar OpenComputers положите в папку libs (нужен только API для компиляции)
+    compileOnly fileTree(dir: 'libs', include: '*.jar')
+}
+
+sourceSets {
+    main {
+        output.resourcesDir = file('build/combined')
+        java.outputDir = file('build/combined')
+    }
+}
+
+jar {
+    manifest {
+        attributes([
+                "Specification-Title"     : "OpenCooler",
+                "Specification-Vendor"    : "OpenCooler",
+                "Specification-Version"   : "1",
+                "Implementation-Title"    : project.name,
+                "Implementation-Version"  : project.jar.archiveVersion,
+                "Implementation-Vendor"   : "OpenCooler",
+                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
+        ])
+    }
+}
+
+jar.finalizedBy('reobfJar')
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

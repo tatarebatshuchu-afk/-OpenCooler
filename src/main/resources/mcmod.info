@@ -1,0 +1,10 @@
+[{
+  "modid": "ocaddon",
+  "name": "OpenCooler",
+  "description": "Coolers, thermal paste and heat simulation for OpenComputers.",
+  "version": "1.0.0",
+  "mcversion": "1.12.2",
+  "logoFile": "logo.png",
+  "authorList": [],
+  "dependencies": ["opencomputers"]
+}]
